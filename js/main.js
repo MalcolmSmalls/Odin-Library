@@ -6,6 +6,12 @@ const formAuthor = document.getElementById('author')
 const formPages = document.getElementById('pages')
 const formRead = document.getElementById('read')
 const formUnread = document.getElementById('unread')
+const testP = document.querySelector('p')
+
+
+
+submitButton.addEventListener('click', addBook)
+
 
 function addBook() {
     let readStatus = ""
@@ -19,11 +25,8 @@ function addBook() {
     }
     let newBook = new Book(bookTitle, author, pageNumber, readStatus)
     library.push(newBook)
-    console.log(library)
+    testP.textContent = 'woah'
 }
-
-
-submitButton.addEventListener('click', addBook)
 
 
 
@@ -36,8 +39,3 @@ function Book(bookTitle, author, pageNumber, readStatus) {
     this.readStatus = readStatus
 };
 
-
-
-function addBookToLibrary(){
-    library.push()
-}
