@@ -17,7 +17,9 @@ function addBook() {
     }else{
         readStatus = formUnread.value
     }
-    alert(`${bookTitle}, ${author}, ${pageNumber}, ${readStatus}`)
+    let newBook = new Book(bookTitle, author, pageNumber, readStatus)
+    library.push(newBook)
+    console.log(library)
 }
 
 
@@ -27,8 +29,11 @@ submitButton.addEventListener('click', addBook)
 
 
 
-function Book() {
-
+function Book(bookTitle, author, pageNumber, readStatus) {
+    this.bookTitle = bookTitle
+    this.author = author
+    this.pageNumber = pageNumber
+    this.readStatus = readStatus
 };
 
 
