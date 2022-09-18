@@ -6,7 +6,7 @@ const formAuthor = document.getElementById('author')
 const formPages = document.getElementById('pages')
 const formRead = document.getElementById('read')
 const formUnread = document.getElementById('unread')
-const testP = document.querySelector('p')
+const listUL = document.querySelector('ul')
 
 
 
@@ -14,6 +14,7 @@ submitButton.addEventListener('click', addBook)
 
 
 function addBook() {
+    let newLi = document.createElement('li')
     let readStatus = ""
     let bookTitle = formTitle.value
     let author = formAuthor.value
@@ -26,7 +27,7 @@ function addBook() {
     let newBook = new Book(bookTitle, author, pageNumber, readStatus)
     library.push(newBook)
     library.forEach(book => {
-        testP.textContent += book.displayInfo()
+        listUL.appendChild(newLi).textContent = book.displayInfo()
     })
 }
 
