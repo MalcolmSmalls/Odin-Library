@@ -25,7 +25,9 @@ function addBook() {
     }
     let newBook = new Book(bookTitle, author, pageNumber, readStatus)
     library.push(newBook)
-    testP.textContent = 'woah'
+    library.forEach(book => {
+        testP.textContent += book.displayInfo()
+    })
 }
 
 
@@ -37,5 +39,8 @@ function Book(bookTitle, author, pageNumber, readStatus) {
     this.author = author
     this.pageNumber = pageNumber
     this.readStatus = readStatus
+    this.displayInfo = function() {
+        return `${bookTitle}, ${author} ${pageNumber} ${readStatus}`
+    }
 };
 
