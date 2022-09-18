@@ -8,7 +8,16 @@ const formRead = document.getElementById('read')
 const formUnread = document.getElementById('unread')
 
 function addBook() {
-    
+    let readStatus = ""
+    let bookTitle = formTitle.value
+    let author = formAuthor.value
+    let pageNumber = formPages.value
+    if(formRead.checked === true){
+        readStatus = formRead.value
+    }else{
+        readStatus = formUnread.value
+    }
+    alert(`${bookTitle}, ${author}, ${pageNumber}, ${readStatus}`)
 }
 
 
