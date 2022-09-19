@@ -8,6 +8,8 @@ const formRead = document.getElementById('read')
 const formUnread = document.getElementById('unread')
 const listUL = document.querySelector('ul')
 
+const testP = document.querySelector('p')
+
 
 
 submitButton.addEventListener('click', addBook)
@@ -26,8 +28,9 @@ function addBook() {
     }
     let newBook = new Book(bookTitle, author, pageNumber, readStatus)
     library.push(newBook)
-    library.forEach(book => {
-        listUL.appendChild(newLi).textContent = book.displayInfo()
+    library.forEach((book, index) => {
+        listUL.appendChild(newLi).innerHTML = `${book.displayInfo()}`
+        testP.innerHTML = `Wassup`
     })
 }
 
