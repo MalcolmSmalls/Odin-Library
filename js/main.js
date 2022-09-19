@@ -28,13 +28,30 @@ function addBook() {
     library.push(newBook)
     library.forEach((book, index) => {
         newLi.className = `Book${index}`
-        listUL.appendChild(newLi).innerHTML = `${book.displayInfo()} <button class="remove-btn" data-index="${index}">Remove Title</button>`
+        listUL.appendChild(newLi).innerHTML = `${book.displayInfo()} <button class="read-status btn-${index}" data-index="${index}">${readStatus}</button><button class="remove-btn" data-index="${index}">Remove Title</button>`
     })
     document.querySelectorAll('.remove-btn').forEach(removal => {
         removal.addEventListener('click', deleteBook)
     })
+    document.querySelectorAll('.read-status').forEach(readOrNot => {
+        readOrNot.addEventListener('click', changeReadStatus)
+    })
     
 
+    
+
+}
+
+function changeReadStatus(e){
+    let i = Number(e.target.attributes[1].value)
+    console.log(e)
+    if(library[i].readStatus === 'read'){
+        library[i].readStatus = 'unread'
+        e.target.textContent = 'unread'
+    }else{
+        library[i].readStatus = 'read'
+        e.target.textContent = 'read'
+    }
 }
 
 
