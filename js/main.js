@@ -29,10 +29,18 @@ function addBook() {
     library.forEach((book, index) => {
         listUL.appendChild(newLi).innerHTML = `${book.displayInfo()} <button class="remove-btn" data-index="${index}">Remove Title</button>`
     })
+    document.querySelectorAll('.remove-btn').forEach(removal => {
+        removal.addEventListener('click', deleteBook)
+    })
+    
+
 }
 
 
-
+function deleteBook(e) {
+    let dataIndex = Number(e.target.attributes[1].value)
+    console.log(dataIndex)
+}
 
 
 function Book(bookTitle, author, pageNumber, readStatus) {
