@@ -1,14 +1,12 @@
 let library = [];
 
-const submitButton = document.querySelector('button')
+const submitButton = document.querySelector('#submit-btn')
 const formTitle = document.getElementById('bookTitle')
 const formAuthor = document.getElementById('author')
 const formPages = document.getElementById('pages')
 const formRead = document.getElementById('read')
 const formUnread = document.getElementById('unread')
 const listUL = document.querySelector('ul')
-
-const testP = document.querySelector('p')
 
 
 
@@ -29,8 +27,7 @@ function addBook() {
     let newBook = new Book(bookTitle, author, pageNumber, readStatus)
     library.push(newBook)
     library.forEach((book, index) => {
-        listUL.appendChild(newLi).innerHTML = `${book.displayInfo()}`
-        testP.innerHTML = `Wassup`
+        listUL.appendChild(newLi).innerHTML = `${book.displayInfo()} <button class="remove-btn" data-index="${index}">Remove Title</button>`
     })
 }
 
