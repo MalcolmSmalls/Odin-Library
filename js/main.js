@@ -27,6 +27,7 @@ function addBook() {
     let newBook = new Book(bookTitle, author, pageNumber, readStatus)
     library.push(newBook)
     library.forEach((book, index) => {
+        newLi.className = `Book${index}`
         listUL.appendChild(newLi).innerHTML = `${book.displayInfo()} <button class="remove-btn" data-index="${index}">Remove Title</button>`
     })
     document.querySelectorAll('.remove-btn').forEach(removal => {
@@ -39,7 +40,8 @@ function addBook() {
 
 function deleteBook(e) {
     let dataIndex = Number(e.target.attributes[1].value)
-    console.log(dataIndex)
+    library.splice(dataIndex)
+    document.querySelector(`.Book${dataIndex}`).remove()
 }
 
 
